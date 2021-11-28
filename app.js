@@ -26,7 +26,9 @@ läggas till i numbers-arrayen, innan arrayen renderas ut i diven med id answer-
 const numbers = [234, 986, 784];
 
 function taskTwo() {
-  alert("Replace this alert with a solution");
+  const randomNumber = Math.floor(Math.random() * 898) + 101;
+  numbers.push(randomNumber)
+  document.getElementById("answer-two").innerHTML = numbers;
 }
 
 /*
@@ -37,7 +39,14 @@ inte är helg ska du trigga en alert med meddelandet "FML"
 */
 
 function taskThree() {
-  alert("Replace this alert with a solution");
+  const week = new Date();
+  let currentday = week.getDay();
+  if (currentday == 0 || currentday == 6) {
+    alert("Woohoo it's weekend")
+  }
+  else {
+    alert("FML")
+  }
 }
 
 /*
@@ -49,11 +58,21 @@ eller båda värdena inte är ett nummer ska en alertbox med meddelandet "Jag ka
 */
 
 function multiplier(valueOne, valueTwo) {
-  alert("Replace this alert with a solution");
+  return valueOne * valueTwo;
 }
 
 function taskFour() {
-  multiplier();
+  //Användes för att testa else alert. valueOne = "Bengt";
+  valueOne = 10;
+  valueTwo = 2;
+  
+  if (typeof valueOne === 'number' && typeof valueTwo === 'number'){
+    alert ("Produkten är: " + multiplier(valueOne, valueTwo));
+ }
+ 
+ else {
+   alert("Jag kan bara multiplicera nummer.") 
+ }
 }
 
 /*
@@ -73,7 +92,17 @@ const eatable = [];
 const trash = [];
 
 function taskFive() {
-  alert("Replace this alert with a solution");
+  fruits.forEach ((fruit) =>  {
+    if (fruit == "apelsin" || fruit == "päron") {
+      trash.push(fruit);
+    }
+    else {
+      eatable.push(fruit);
+    }
+  })
+  
+  document.getElementById("answer-five").innerHTML = "<b>Ätligt: </b>" + eatable  +  "<b>Skräp: </b>" + trash; 
+  //få dessa på samma rad, <b> ställer till det?
 }
 
 /*
@@ -107,7 +136,28 @@ const overThirty = [];
 const underThirty = [];
 
 function taskSix() {
-  alert("Replace this alert with a solution");
+  //alert("Replace this alert with a solution");
+  persons.forEach ((person) => {
+    if (person.age > 30) {
+      overThirty.push(person);
+    }
+    else {
+      underThirty.push(person);
+    }
+
+    if (person.married == true) {
+      married.push(person);
+    }
+    else {
+      notMarried.push(person);
+    }
+    
+  })
+  document.getElementById("answer-six").innerHTML = persons;
+  console.log(overThirty);
+  console.log(underThirty);
+  console.log(married); 
+  console.log(notMarried);
 }
 
 /*
@@ -121,6 +171,7 @@ const addMeSomeLineBreaks =
 
 function taskSeven() {
   alert("Replace this alert with a solution");
+  
 }
 
 /*
