@@ -100,9 +100,8 @@ function taskFive() {
       eatable.push(fruit);
     }
   })
-  
-  document.getElementById("answer-five").innerHTML = "<b>Ätligt: </b>" + eatable  +  "<b>Skräp: </b>" + trash; 
-  //få dessa på samma rad, <b> ställer till det?
+
+  document.getElementById("answer-five").innerHTML = "<b>Ätligt:</b>" + eatable + "<br>" +  "<b>Skräp:</b> " + trash; 
 }
 
 /*
@@ -136,28 +135,21 @@ const overThirty = [];
 const underThirty = [];
 
 function taskSix() {
-  //alert("Replace this alert with a solution");
-  persons.forEach ((person) => {
+  persons.forEach ((person) =>  {
     if (person.age > 30) {
-      overThirty.push(person);
+      overThirty.push(person.name);
     }
     else {
-      underThirty.push(person);
+      underThirty.push(person.name);
     }
-
     if (person.married == true) {
-      married.push(person);
+      married.push(person.name);
     }
     else {
-      notMarried.push(person);
+      notMarried.push(person.name);
     }
-    
   })
-  document.getElementById("answer-six").innerHTML = persons;
-  console.log(overThirty);
-  console.log(underThirty);
-  console.log(married); 
-  console.log(notMarried);
+  document.querySelector("#answer-six").innerHTML = "<b>Över 30:</b> "+ overThirty + "<b>Under 30:</b> " + underThirty  + "<b>Gift:</b> "+ married + "<b>Ogift:</b> " + notMarried;
 }
 
 /*
@@ -170,8 +162,8 @@ const addMeSomeLineBreaks =
   "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
 
 function taskSeven() {
-  alert("Replace this alert with a solution");
-  
+  const lineBreaksAdded = addMeSomeLineBreaks.split(",").join("<br />");
+  document.getElementById("answer-seven").innerHTML = lineBreaksAdded;
 }
 
 /*
@@ -182,6 +174,12 @@ efter att tre sekunder har gått ska diven visas som vanligt igen
 
 function taskEight() {
   alert("Replace this alert with a solution");
+  document.getElementById("card-eight").style.display = 'none';
+  setTimeout(waitThreeSeconds, 3000);
+
+  function waitThreeSeconds () {
+    document.getElementById("card-eight").style.display = 'block';
+  }
 }
 
 /*
@@ -191,7 +189,22 @@ answer-container till blå, annars ska den ändras till röd
 */
 
 function taskNine() {
-  alert("Replace this alert with a solution");
+  const time = new Date();
+  let currentHour = time.getHours();
+  let currentMinutes = time.getMinutes();
+  let currentSeconds = time.getSeconds();
+  let currentTime = currentHour + ":" + currentMinutes + ":" + currentSeconds;
+  console.log(currentTime);
+  
+  if (currentHour >= 17 && currentMinutes >= 0 && currentSeconds >= 0) {
+    alert("Klockan är över 17.")
+    document.getElementsByClassName("answer-container")[0].style.background = 'blue';
+  }
+  else {
+    alert("Klockan är under 17.")
+    document.getElementsByClassName("answer-container")[0].style.background = 'red';
+    
+  }
 }
 
 /*
