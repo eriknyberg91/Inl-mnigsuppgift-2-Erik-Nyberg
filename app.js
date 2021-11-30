@@ -193,17 +193,18 @@ function taskNine() {
   let currentHour = time.getHours();
   let currentMinutes = time.getMinutes();
   let currentSeconds = time.getSeconds();
-  let currentTime = currentHour + ":" + currentMinutes + ":" + currentSeconds;
-  console.log(currentTime);
   
   if (currentHour >= 17 && currentMinutes >= 0 && currentSeconds >= 0) {
-    alert("Klockan är över 17.")
-    document.getElementsByClassName("answer-container")[0].style.background = 'blue';
+    let answerContainerBackGround = document.getElementsByClassName("answer-container");
+    for (i = 0; i < answerContainerBackGround.length; i++) {
+      answerContainerBackGround[i].style.backgroundColor = "blue";
+    }
   }
   else {
-    alert("Klockan är under 17.")
-    document.getElementsByClassName("answer-container")[0].style.background = 'red';
-    
+    let answerContainerBackGround = document.getElementsByClassName("answer-container");
+    for (i = 0; i < answerContainerBackGround.length; i++) {
+      answerContainerBackGround[i].style.backgroundColor = "red";
+    }
   }
 }
 
