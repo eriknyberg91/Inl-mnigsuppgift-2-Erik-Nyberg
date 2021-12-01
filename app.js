@@ -63,7 +63,7 @@ function multiplier(valueOne, valueTwo) {
 
 function taskFour() {
   //Användes för att testa else alert. valueOne = "Bengt";
-  valueOne = 10;
+  valueOne = 6;
   valueTwo = 2;
   
   if (typeof valueOne === 'number' && typeof valueTwo === 'number'){
@@ -173,7 +173,6 @@ efter att tre sekunder har gått ska diven visas som vanligt igen
 */
 
 function taskEight() {
-  alert("Replace this alert with a solution");
   document.getElementById("card-eight").style.display = 'none';
   setTimeout(waitThreeSeconds, 3000);
 
@@ -222,11 +221,30 @@ om någon av dessa conditions inte uppfylls ska du visa en alertbox med texten "
 */
 
 function calculator(valueOne, valueTwo, operator) {
-  alert("Replace this alert with a solution");
+  if (operator == "addition" && typeof valueOne === 'number' && typeof valueTwo === 'number') {
+    result = valueOne + valueTwo;
+  }
+  else if (operator == "subtraction" && typeof valueOne === 'number' && typeof valueTwo === 'number') {
+    result = valueOne - valueTwo;
+  }
+  else if (operator == "multiplication" && typeof valueOne === 'number' && typeof valueTwo === 'number') {
+    result = valueOne * valueTwo;
+  }
+  else if (operator == "division" && typeof valueOne === 'number' && typeof valueTwo === 'number') {
+    result = valueOne / valueTwo;
+  }
+  else {
+    alert("Något gick fel!")
+  }
 }
 
 function taskTen() {
   //första och andra argumentet ska vara nummer, tredje argumentet ska
   //vara en sträng med något av värdena "add", "subtract", "multiply", "divide"
-  calculator();
+  operator = "addition";
+  valueOne = 4;
+  valueTwo = 4;
+  calculator(valueOne, valueTwo, operator)
+  alert ("Resultatet är: " + result)
+
 }
